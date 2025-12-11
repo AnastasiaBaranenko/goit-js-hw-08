@@ -86,3 +86,15 @@ images.forEach(img => {
 
 galleryEl.append(allImg);
 console.log(galleryEl);
+
+galleryEl.addEventListener('click', handleClick);
+
+function handleClick(event) {
+  const galleryImg = event.target.classList.contains('gallery-image');
+  if (!galleryImg) {
+    return;
+  }
+
+  const pictures = event.target.dataset.source;
+  console.log(pictures);
+}
