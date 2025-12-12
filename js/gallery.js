@@ -90,6 +90,7 @@ console.log(galleryEl);
 galleryEl.addEventListener('click', handleClick);
 
 function handleClick(event) {
+  event.preventDefault();
   const galleryImg = event.target.classList.contains('gallery-image');
   if (!galleryImg) {
     return;
@@ -97,4 +98,7 @@ function handleClick(event) {
 
   const pictures = event.target.dataset.source;
   console.log(pictures);
+
+  const picturesEl = basicLightbox.create(`<img src="${pictures}"/>`);
+  picturesEl.show();
 }
